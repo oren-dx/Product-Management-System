@@ -1,0 +1,41 @@
+{% extends 'master/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+</head>
+
+<body>
+
+<div class="login-container">
+    <h2>Welcome Back</h2>
+    <p>Login to your account</p>
+
+
+    <form method="POST" >
+        {% csrf_token %}
+         {{form_data | crispy}}
+        
+
+        <div class="options">
+            <label>
+                <input type="checkbox">Remember me</label>
+
+            <a href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
+    <div class="signup">
+        Don't have an account?
+        <a href="{% url 'Register' %}" class="btn btn-info">Sign Up</a>
+    </div>
+</div>
+
+</body>
+
+</html>
+    
+{% endblock content %}
+    
